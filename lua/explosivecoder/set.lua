@@ -12,13 +12,13 @@ vim.opt.incsearch = true
 
 vim.opt.smartindent = true
 vim.opt.scrolloff = 9
+vim.opt.termguicolors = true
+vim.opt.undofile = true
 
 vim.g.mapleader = " "
-vim.bo.filetype = true
-
 vim.opt.wrap = false
 
-vim.opt.colorcolumn = "74"
+vim.opt.colorcolumn = "80"
 vim.opt.splitbelow = true
 
 vim.g.loaded_python_provider = 0
