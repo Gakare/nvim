@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  fd = {
+    loaded = true,
+    path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fd",
+    url = "https://github.com/sharkdp/fd"
+  },
   harpoon = {
     loaded = true,
     path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\harpoon",
@@ -133,6 +138,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ripgrep = {
+    loaded = true,
+    path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ripgrep",
+    url = "https://github.com/BurntSushi/ripgrep"
   },
   ["telescope.nvim"] = {
     loaded = true,

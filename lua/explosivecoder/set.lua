@@ -23,3 +23,8 @@ vim.opt.splitbelow = true
 
 vim.g.loaded_python_provider = 0
 vim.g.python3_host_prog = "C:\\User\\Owner\\AppData\\Local\\Programs\\Python\\Python311\\python.exe"
+
+--Trying to make powershell have vim mode
+vim.opt.shell = "powershell"
+--vim.opt.shellcmdflag=-"command"
+
