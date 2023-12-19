@@ -1,0 +1,17 @@
+-- local toggleterm = require('toggleterm')
+-- toggleterm.setup {
+-- 
+-- }
+-- 
+-- --vim.keymap.set('n', "<C-\\>t", "<cmd>ToggleTerm<cr>")
+-- 
+-- function CreateTerm()
+--     vim.api.nvim_exec2("<cmd>ToggleTerm<cr>", )
+--     --vim.api.nvim_open_win(1, false, {relative='win', width=50, height=50, bufpos={100,10}})
+-- end
+-- 
+-- function CreateWindow()
+--     vim.api.nvim_win_call(0, function() CreateTerm() end)
+-- end
+-- 
+-- vim.keymap.set('n', "<C-\\>t", function() CreateWindow() end)
