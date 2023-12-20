@@ -7,7 +7,6 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
-	-- Facing a bug right now that every time I packerSync it keeps throwing an error
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		-- or                            , branch = '0.1.x',
@@ -20,7 +19,13 @@ return require('packer').startup(function(use)
 
 	use ({ "miikanissi/modus-themes.nvim" })
 
-	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
 
 	use {
 		"ThePrimeagen/harpoon",
