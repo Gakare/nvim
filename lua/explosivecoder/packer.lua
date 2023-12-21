@@ -53,11 +53,21 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
 
     use {
-        'akinsho/toggleterm.nvim', tag = '*', config = function()
+        'akinsho/toggleterm.nvim', config = function()
             require("toggleterm").setup()
         end
     }
 
     use 'mbbill/undotree'
+
+    use {
+        'mfussenegger/nvim-dap',
+        requires = {
+            'theHamsta/nvim-dap-virtual-text',
+            'rcarriga/nvim-dap-ui',
+            'nvim-telescope/telescope-dap.nvim',
+            'folke/neodev.nvim'
+        }
+    }
 
 end)
