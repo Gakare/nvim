@@ -5,3 +5,7 @@ vim.keymap.set('n', '<leader>ps', function()
 	builtin.grep_string({ search = vim.fn.input("Grep -> ") });
 end)
 vim.keymap.set('n', '<leader>ls', builtin.live_grep, {})
+
+require('telescope').setup()
+require('telescope').load_extension('dap')
+vim.keymap.set('n', '<leader>td', "<cmd>Telescope dap commands<cr>")

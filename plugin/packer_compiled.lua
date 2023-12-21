@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1702233742\\share\\lua\\5.1\\?.lua;C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1702233742\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1702233742\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1702233742\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
-local install_cpath_pattern = "C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1702233742\\lib\\lua\\5.1\\?.so"
+local package_path_str = "C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\share\\lua\\5.1\\?.lua;C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\share\\lua\\5.1\\?\\init.lua;C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\lib\\luarocks\\rocks-5.1\\?.lua;C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\lib\\luarocks\\rocks-5.1\\?\\init.lua"
+local install_cpath_pattern = "C:\\Users\\Owner\\AppData\\Local\\Temp\\nvim\\packer_hererocks\\2.1.1696883897\\lib\\lua\\5.1\\?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["codicons.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\codicons.nvim",
+    url = "https://github.com/mortepau/codicons.nvim"
+  },
   fd = {
     loaded = true,
     path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fd",
@@ -114,10 +119,30 @@ _G.packer_plugins = {
     path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\modus-themes.nvim",
     url = "https://github.com/miikanissi/modus-themes.nvim"
   },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -143,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ripgrep",
     url = "https://github.com/BurntSushi/ripgrep"
+  },
+  ["telescope-dap.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Owner\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-dap.nvim",
+    url = "https://github.com/nvim-telescope/telescope-dap.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
