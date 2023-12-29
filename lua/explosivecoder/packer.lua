@@ -65,14 +65,13 @@ return require('packer').startup(function(use)
         requires = {
             'theHamsta/nvim-dap-virtual-text',
             'rcarriga/nvim-dap-ui',
-<<<<<<< HEAD
             'nvim-telescope/telescope-dap.nvim',
             'folke/neodev.nvim'
-=======
             'nvim-telescope/telescope-dap.nvim', -- I am trying to see if I need this
             'folke/neodev.nvim',
             'mortepau/codicons.nvim'
->>>>>>> a46980b (I finally got a baseline for my debugger. I configured my cpp debugger)
+            'nvim-telescope/telescope-dap.nvim',
+            'folke/neodev.nvim'
         }
     }
 
