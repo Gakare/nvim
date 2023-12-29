@@ -66,6 +66,7 @@ return require('packer').startup(function(use)
             'theHamsta/nvim-dap-virtual-text',
             'rcarriga/nvim-dap-ui',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'nvim-telescope/telescope-dap.nvim',
             'folke/neodev.nvim'
 =======
@@ -73,6 +74,10 @@ return require('packer').startup(function(use)
             'folke/neodev.nvim',
             'mortepau/codicons.nvim'
 >>>>>>> a46980b (I finally got a baseline for my debugger. I configured my cpp debugger)
+=======
+            'nvim-telescope/telescope-dap.nvim',
+            'folke/neodev.nvim'
+>>>>>>> 7657b502bdb394443a9397a239de8e326527a635
         }
     }
 
