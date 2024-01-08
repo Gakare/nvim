@@ -1,9 +1,12 @@
 require 'nvim-treesitter.install'.prefer_git = false
-require 'nvim-treesitter.install'.compilers = { "clang" }
+
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    require 'nvim-treesitter.install'.compilers = { "clang" }
+end
 
 require'nvim-treesitter.configs'.setup {
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
-	ensure_installed = { "c", "lua", "vim",  "python", "javascript", "typescript", "rust", "cpp" },
+	ensure_installed = { "c", "lua", "vim",  "python", "javascript", "rust", "cpp" },
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,

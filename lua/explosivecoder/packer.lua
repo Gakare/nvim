@@ -66,10 +66,10 @@ return require('packer').startup(function(use)
             'theHamsta/nvim-dap-virtual-text',
             'rcarriga/nvim-dap-ui',
             'nvim-telescope/telescope-dap.nvim',
-            'folke/neodev.nvim'
+            'folke/neodev.nvim',
             'nvim-telescope/telescope-dap.nvim', -- I am trying to see if I need this
             'folke/neodev.nvim',
-            'mortepau/codicons.nvim'
+            'mortepau/codicons.nvim',
             'nvim-telescope/telescope-dap.nvim',
             'folke/neodev.nvim'
         }
