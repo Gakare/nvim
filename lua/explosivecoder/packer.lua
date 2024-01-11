@@ -80,4 +80,7 @@ return require('packer').startup(function(use)
         'folke/trouble.nvim',
     }
 
+    use {
+        'j-hui/fidget.nvim',
+    }
 end)
