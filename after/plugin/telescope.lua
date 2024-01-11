@@ -8,4 +8,4 @@ vim.keymap.set('n', '<leader>ls', builtin.live_grep, {})
 
 require('telescope').setup()
 require('telescope').load_extension('dap')
-vim.keymap.set('n', '<leader>td', "<cmd>Telescope dap commands<cr>")
+vim.keymap.set('n', '<leader>dc', "<cmd>Telescope dap commands<cr>")

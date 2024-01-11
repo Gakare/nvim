@@ -74,5 +74,10 @@ return require('packer').startup(function(use)
             'folke/neodev.nvim'
         }
     }
+    use 'nvim-tree/nvim-web-devicons'
+
+    use {
+        'folke/trouble.nvim',
+    }
 
 end)
