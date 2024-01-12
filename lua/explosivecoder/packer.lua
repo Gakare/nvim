@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
             { 'BurntSushi/ripgrep' },
         }
     }
-
+    -- Color scheme
 	use ({ "miikanissi/modus-themes.nvim" })
 
 	use {
@@ -74,13 +74,10 @@ return require('packer').startup(function(use)
             'folke/neodev.nvim'
         }
     }
+
     use 'nvim-tree/nvim-web-devicons'
 
-    use {
-        'folke/trouble.nvim',
-    }
+    use 'folke/trouble.nvim'
 
-    use {
-        'j-hui/fidget.nvim',
-    }
+    use 'j-hui/fidget.nvim'
 end)
