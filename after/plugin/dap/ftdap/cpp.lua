@@ -1,24 +1,35 @@
 local dap = require('dap')
 local miDebuggerPath = ""
+
 -- Just to make it look the same
-local slash = ""
+local os = vim.loop.os_uname().sysname
+local slash = "/"
+local command = vim.fn.expand("$HOME/.local/share/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7")
 
-dap.adapters.cppdbg = {
-    id = 'cppdbg',
-    type = 'executable',
-    command = vim.fn.expand("$HOME/.vscode/extensions/ms-vscode.cpptools-1.18.5/debugAdapters/bin/OpenDebugAD7.exe"),
-    options = {
-        detached = false
-    }
-}
-
-if vim.loop.os_uname().sysname == "Windows_NT" then
+if os == "Windows_NT" then
     miDebuggerPath = 'C:/msys64/mingw64/bin/gdb.exe'
+    dap.adapters.cppdbg = {
+        id = 'cppdbg',
+        type = 'executable',
+        command = vim.fn.expand("$HOME/.vscode/extensions/ms-vscode.cpptools-1.18.5/debugAdapters/bin/OpenDebugAD7.exe"),
+        options = {
+            detached = false
+        }
+    }
     slash = "\\"
-elseif vim.loop.os_uname().sysname == "Linux" then
+end
+if os == "Linux" then
+    miDebuggerPath = '/usr/bin/gdb'
+    dap.adapters.cppdbg = {
+        id = 'cppdbg',
+        type = 'executable',
+        command = vim.fn.expand("$HOME/.local/share/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7"),
+        options = {
+            detached = false
+        }
+    }
     slash = "/"
 end
-
 
 local cppdbg = {
     name = 'Attach to gdbserver: ',
