@@ -21,6 +21,5 @@ vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
 vim.opt.splitbelow = true
 
+vim.bo.filetype = true
 vim.g.loaded_python_provider = 0
-vim.g.python3_host_prog = "C:\\User\\Owner\\AppData\\Local\\Programs\\Python\\Python311\\python.exe"
-
