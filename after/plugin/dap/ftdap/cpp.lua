@@ -3,8 +3,8 @@ local miDebuggerPath = ""
 
 -- Just to make it look the same
 local os = vim.loop.os_uname().sysname
+-- Defaults to forward slash
 local slash = "/"
-local command = vim.fn.expand("$HOME/.local/share/cpptools-linux/extension/debugAdapters/bin/OpenDebugAD7")
 
 if os == "Windows_NT" then
     miDebuggerPath = 'C:/msys64/mingw64/bin/gdb.exe'
@@ -28,7 +28,6 @@ if os == "Linux" then
             detached = false
         }
     }
-    slash = "/"
 end
 
 local cppdbg = {
