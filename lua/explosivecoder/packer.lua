@@ -81,5 +81,5 @@ return require('packer').startup(function(use)
     use 'j-hui/fidget.nvim'
 
     -- To be determined if I need a linter
-    use 'mfussenegger/nvim-lint'
+    use 'dense-analysis/ale'
 end)
