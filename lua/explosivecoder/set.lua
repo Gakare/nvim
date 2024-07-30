@@ -21,5 +21,5 @@ vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
 vim.opt.splitbelow = true
 
-vim.bo.filetype = true
+vim.bo.filetype = "true"
 vim.g.loaded_python_provider = 0

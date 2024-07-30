@@ -1,10 +1,11 @@
-require 'nvim-treesitter.install'.prefer_git = false
+require("nvim-treesitter.install").prefer_git = false
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
 if vim.loop.os_uname().sysname == "Windows_NT" then
-    require 'nvim-treesitter.install'.compilers = { "clang" }
+	require("nvim-treesitter.install").compilers = { "clang" }
 end
 
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	ensure_installed = { "c", "lua", "vim", "vimdoc", "python", "javascript", "rust", "cpp" },
 
@@ -24,4 +25,14 @@ require'nvim-treesitter.configs'.setup {
 		-- Instead of true it can also be a list of languages
 		additional_vim_regex_highlighting = false,
 	},
+})
+
+-- PHP
+parser_config.blade = {
+	install_info = {
+		url = "https://github.com/EmranMR/tree-sitter-blade",
+		files = { "src/parser.c" },
+		branch = "main",
+	},
+	filetype = "blade",
 }
