@@ -27,3 +27,7 @@ ls.add_snippets("cpp", {
 			.. "\n"
 	),
 })
+
+ls.add_snippets("blade", {
+	ls.parser.parse_snippet("<", "<$1>$0</$1>"),
+})
