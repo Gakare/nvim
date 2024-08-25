@@ -74,7 +74,7 @@ require("mason-lspconfig").setup({
 })
 
 local lspconfig = require("lspconfig")
-local configs = require("lspconfig.configs")
+--local configs = require("lspconfig.configs")
 
 lsp_zero.setup()
 
@@ -104,3 +104,16 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.phpactor.setup({})
+
+lspconfig.rust_analyzer.setup({
+	settings = {
+		checkOnSave = {
+			allFeatures = true,
+			command = "cargo-clippy",
+		},
+	},
+})
+
+lspconfig.glsl_analyzer.setup({
+	filetypes = { "vert", "frag" },
+})

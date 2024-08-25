@@ -14,14 +14,14 @@ ls.config.set_config({
 
 -- Setting up kepymaps
 -- Jumping forward the snippet.
-vim.keymap.set("i", "<c-k>", function()
+vim.keymap.set("i", "<c-t>", function()
 	if ls.expand_or_jumpable() then
-		ls.expand_or_jump()
+		ls.jump(1)
 	end
 end)
 
 -- Jumping backward the snippet.
-vim.keymap.set({ "i", "s" }, "<c-j>", function()
+vim.keymap.set({ "i", "s" }, "<c-h>", function()
 	if ls.jumpable(-1) then
 		ls.jump(-1)
 	end
