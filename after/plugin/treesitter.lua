@@ -36,3 +36,5 @@ parser_config.blade = {
     },
     filetype = "blade",
 }
+
+require('nvim-treesitter.install').compilers = { 'zig' }
