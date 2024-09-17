@@ -85,4 +85,8 @@ return require("packer").startup(function(use)
 	use({ "mfussenegger/nvim-lint" })
 
 	use({ "prichrd/netrw.nvim" })
+
+	use({ "nvim-lualine/lualine.nvim" })
+
+	use({ "norcalli/nvim-colorizer.lua" })
 end)

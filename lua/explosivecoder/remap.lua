@@ -25,8 +25,9 @@ vim.keymap.set("n", "<leader>l", "<c-w><c-l>")
 
 -- Visual mode ---------------------------------------------------------
 vim.keymap.set("v", "<leader>y", '"+y')
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
+-- Gotten from https://vimtricks.com/p/vimtrick-moving-lines/
+vim.keymap.set("v", "J", ":m '>+1<CR>gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv")
 
 -- Command mode ---------------------------------------------------------
 vim.keymap.set("x", "<leader>p", '"_dP')

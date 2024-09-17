@@ -67,7 +67,7 @@ lsp_zero.default_keymaps()
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver", "rust_analyzer", "clangd" },
+	ensure_installed = { "rust_analyzer", "clangd" },
 	handlers = {
 		lsp_zero.default_setup,
 	},
