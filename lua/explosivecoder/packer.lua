@@ -19,7 +19,11 @@ return require("packer").startup(function(use)
     -- Color scheme
     use({ "dasupradyumna/midnight.nvim" })
 
+<<<<<<< HEAD
     use({ "nvim-treesitter/nvim-treesitter" }, { "TSUpdate" })
+=======
+    use({ "nvim-treesitter/nvim-treesitter" })
+>>>>>>> 7de711815ee5d959f46ac8c52584cf329919f467
 
     use({
         "ThePrimeagen/harpoon",
