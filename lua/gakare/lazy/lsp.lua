@@ -13,35 +13,7 @@ return {
 			"stevearc/conform.nvim",
 			"mfussenegger/nvim-lint",
 		},
-
 		config = function()
-			require("cmp").setup({
-				snippet = {
-					expand = function(a)
-						require("luasnip").lsp_expand(a.body)
-					end,
-				},
-				sources = {
-					{ name = "luasnip" },
-					{ name = "nvim_lsp" },
-				},
-
-				-- Taken from Icheylus @ SO
-				formatting = {
-					format = function(entry, vim_item)
-						vim_item.menu = ({
-							nvim_lsp = "[LSP]",
-							luasnip = "[Snippet]",
-							buffer = "[Buffer]",
-						})[entry.source.name]
-						vim_item.dup = ({
-							luasnip = 0,
-						})[entry.source.name] or 0
-						return vim_item
-					end,
-				},
-			})
-
 			require("conform").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
@@ -75,28 +47,45 @@ return {
 
 			local lsp_zero = require("lsp-zero")
 			local cmp = require("cmp")
-
-			cmp.setup({
-				preselect = "none",
-				completion = {
-					completopt = "menu,menuone,noinsert,noselect",
-				},
-			})
-
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 			cmp.setup({
 				cmp_select,
 				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
+					expand = function(a)
+						require("luasnip").lsp_expand(a.body)
 					end,
 				},
-				mappings = cmp.mapping.preset.insert({
-					["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-					["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+				sources = {
+					{ name = "luasnip" },
+					{ name = "nvim_lsp" },
+				},
+
+				-- Taken from Icheylus @ SO
+				formatting = {
+					format = function(entry, vim_item)
+						vim_item.menu = ({
+							nvim_lsp = "[LSP]",
+							luasnip = "[Snippet]",
+							buffer = "[Buffer]",
+						})[entry.source.name]
+						vim_item.dup = ({
+							luasnip = 0,
+						})[entry.source.name] or 0
+						return vim_item
+					end,
+				},
+				preselect = "none",
+				completion = {
+					completopt = "menu,menuone,noinsert",
+				},
+				mapping = cmp.mapping.preset.insert({
+					["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item()),
+					["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item()),
 					["<C-y>"] = cmp.mapping.confirm({ select = true }),
 					["<C-space>"] = cmp.mapping.complete(),
+					["<C-u>"] = cmp.mapping.scroll_docs(-4),
+					["<C-d>"] = cmp.mapping.scroll_docs(4),
 				}),
 			})
 
@@ -144,6 +133,7 @@ return {
 				handlers = {
 					lsp_zero.default_setup,
 				},
+				automatic_installation = {},
 			})
 
 			local lspconfig = require("lspconfig")
