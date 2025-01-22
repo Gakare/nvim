@@ -1,10 +1,9 @@
 return {
 	{
-		"VonHeikemen/lsp-zero.nvim",
+		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			"neovim/nvim-lspconfig",
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-nvim-lsp",
 			"L3MON4D3/LuaSnip",
@@ -12,6 +11,7 @@ return {
 			"hrsh7th/cmp-path",
 			"stevearc/conform.nvim",
 			"mfussenegger/nvim-lint",
+			"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		},
 		config = function()
 			require("conform").setup({
@@ -45,7 +45,7 @@ return {
 				end,
 			})
 
-			local lsp_zero = require("lsp-zero")
+			local ls = require("luasnip")
 			local cmp = require("cmp")
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -53,12 +53,13 @@ return {
 				cmp_select,
 				snippet = {
 					expand = function(a)
-						require("luasnip").lsp_expand(a.body)
+						ls.lsp_expand(a.body)
 					end,
 				},
 				sources = {
 					{ name = "luasnip" },
 					{ name = "nvim_lsp" },
+					{ name = "path" },
 				},
 
 				-- Taken from Icheylus @ SO
@@ -75,73 +76,46 @@ return {
 						return vim_item
 					end,
 				},
+
 				preselect = "none",
 				completion = {
-					completopt = "menu,menuone,noinsert",
+					completopt = "menu,menuone,noselect,preview",
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item()),
 					["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item()),
-					["<C-y>"] = cmp.mapping.confirm({ select = true }),
+					["<C-y>"] = cmp.mapping.confirm({
+						--behavior = cmp.ConfirmBehavior.Insert,
+						select = false,
+					}, { "i", "c" }),
 					["<C-space>"] = cmp.mapping.complete(),
 					["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
 				}),
 			})
 
-			lsp_zero.on_attach(function(_, bufnr)
-				-- see :help lsp-zero-keybindings
-				-- to learn the available actions
-				local opts = { buffer = bufnr, remap = false }
-				vim.keymap.set("n", "gd", function()
-					vim.lsp.buf.definition()
-				end, opts)
-				vim.keymap.set("n", "K", function()
-					vim.lsp.buf.hover()
-				end, opts)
-				vim.keymap.set("n", "[d", function()
-					vim.diagnostic.goto_prev()
-				end, opts)
-				vim.keymap.set("n", "]d", function()
-					vim.diagnostic.goto_next()
-				end, opts)
-				vim.keymap.set("n", "<leader>vws", function()
-					vim.lsp.buf.workspace_symbol(vim.fn.input("Query: "), {})
-				end, opts)
-				vim.keymap.set("n", "<leader>vd", function()
-					vim.diagnostic.open_float()
-				end, opts)
-				vim.keymap.set("n", "<leader>vca", function()
-					vim.lsp.buf.code_action()
-				end, opts)
-				vim.keymap.set("n", "<leader>vrr", function()
-					vim.lsp.buf.references()
-				end, opts)
-				vim.keymap.set("n", "<leader>vrn", function()
-					vim.lsp.buf.rename()
-				end, opts)
-				vim.keymap.set("i", "<C-h>", function()
-					vim.lsp.buf.signature_help()
-				end, opts)
-			end)
+			local lspconfig = require("lspconfig")
 
-			lsp_zero.default_keymaps()
+			vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
+			require("lsp_lines").setup({})
+			vim.keymap.set("n", "<leader>l", function()
+				local config = vim.diagnostic.config() or {}
+				if config.virtual_text then
+					vim.diagnostic.config({ virtual_text = false, virtual_lines = true })
+				else
+					vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
+				end
+			end)
 
 			require("mason").setup()
 			require("mason-lspconfig").setup({
 				ensure_installed = { "lua_ls", "rust_analyzer", "clangd" },
-				handlers = {
-					lsp_zero.default_setup,
-				},
 				automatic_installation = {},
 			})
 
-			local lspconfig = require("lspconfig")
-			--local configs = require("lspconfig.configs")
-
-			lsp_zero.setup()
-
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
 				settings = {
 					Lua = {
 						runtime = {
@@ -193,7 +167,13 @@ return {
 				cmd = { "haskell-language-server-wrapper", "--lsp" },
 			})
 
-			local ls = require("luasnip")
+			lspconfig.clangd.setup({
+				cmd = { "clangd" },
+				filetypes = { "c", "cpp" },
+			})
+
+			lspconfig.gopls.setup({})
+
 			--local types = require('luasnip.util.types')
 
 			ls.config.set_config({
@@ -222,6 +202,12 @@ return {
 				end
 			end, { silent = true })
 
+			vim.keymap.set({ "i", "s" }, "<c-k>", function()
+				if ls.expand_or_jumpable() then
+					ls.expand_or_jump()
+				end
+			end, { silent = true })
+			--
 			-- Selecting within a list of options.
 			vim.keymap.set({ "i", "s" }, "<c-l>", function()
 				if ls.choice_active() then

@@ -6,6 +6,7 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>cp0", "<cmd>cd ~<CR><bar><cmd>pwd<CR>")
 vim.keymap.set("n", "<leader>cp1", "<cmd>cd %:p:h<CR><bar><cmd>pwd<CR>")
 
+-- Only for windows
 vim.keymap.set("n", "<leader><C-e>", "<cmd>cd %:p:h<CR><bar><cmd>!Explorer.exe .<CR><CR>")
 
 --Helpful yankings: asbjorHaland
@@ -33,5 +34,5 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv")
 vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- Terminal mode
-vim.keymap.set("t", "<escape>", "<c-\\><c-n>")
+vim.keymap.set("t", "<escape><escape>", "<c-\\><c-n>")
 vim.keymap.set("t", "<c-\\>e", "exit<cr>")
