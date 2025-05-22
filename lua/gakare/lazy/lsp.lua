@@ -173,7 +173,6 @@ return {
 
             lspconfig.gopls.setup({})
 
-<<<<<<< HEAD
 			lspconfig.ts_ls.setup({})
 
 			lspconfig.gopls.setup({})
@@ -182,11 +181,9 @@ return {
 			lspconfig.pyright.setup({})
 
 			--local types = require('luasnip.util.types')
-=======
             lspconfig.pylsp.setup({})
 
             lspconfig.ts_ls.setup({})
->>>>>>> 1ea8bf8 (Added iron.nvim for repl interaction)
 
             lspconfig.cmake.setup({})
 
