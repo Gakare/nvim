@@ -172,7 +172,12 @@ return {
 				filetypes = { "c", "cpp" },
 			})
 
+			lspconfig.ts_ls.setup({})
+
 			lspconfig.gopls.setup({})
+
+			lspconfig.vhdl_ls.setup({})
+			lspconfig.pyright.setup({})
 
 			--local types = require('luasnip.util.types')
 
