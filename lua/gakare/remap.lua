@@ -6,7 +6,13 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>cp0", "<cmd>cd ~<CR><bar><cmd>pwd<CR>")
 vim.keymap.set("n", "<leader>cp1", "<cmd>cd %:p:h<CR><bar><cmd>pwd<CR>")
 
--- Only for windows
+vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
+vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
+
+-- !Open config file
+vim.keymap.set("n", "<leader>nv", "<cmd>execute 'edit '.stdpath('config').'/init.lua'<CR>")
+
+-- !Only for windows
 vim.keymap.set("n", "<leader><C-e>", "<cmd>cd %:p:h<CR><bar><cmd>!Explorer.exe .<CR><CR>")
 
 --Helpful yankings: asbjorHaland

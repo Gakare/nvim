@@ -1,3 +1,6 @@
+-- TODO:
+-- Accept arguments to do terminal commands
+-- Put the compilation results into the quickfix bag
 local state = {
 	floating = {
 		buf = -1,
