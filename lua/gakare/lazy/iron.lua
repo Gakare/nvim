@@ -1,6 +1,7 @@
 return {
 	{
 		"vigemus/iron.nvim",
+		ft = { "python" },
 		config = function()
 			local iron = require("iron.core")
 			-- local view = require("iron.view")

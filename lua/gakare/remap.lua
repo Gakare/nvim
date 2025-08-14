@@ -6,6 +6,11 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>cp0", "<cmd>cd ~<CR><bar><cmd>pwd<CR>")
 vim.keymap.set("n", "<leader>cp1", "<cmd>cd %:p:h<CR><bar><cmd>pwd<CR>")
 
+-- TODO: Might want to moveh some stuff from lsp to be implemented to qflist/loclist
+vim.keymap.set("n", "<leader>td", function()
+	vim.diagnostic.setqflist()
+end)
+vim.keymap.set("n", "<M-c>", "<cmd>cclose<cr>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 
