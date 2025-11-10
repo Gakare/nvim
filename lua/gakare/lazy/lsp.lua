@@ -15,31 +15,6 @@ return {
 			"phpactor/phpactor", -- Oh yeah serious php time
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
-
-			lspconfig.lua_ls.setup({
-				runtime = {
-					version = "LuaJIT",
-					path = {
-						"lua/?.lua",
-						"lua/?/init.lua",
-					},
-				},
-				workspace = {
-					checkThirdParty = false,
-					library = {
-						vim.env.VIMRUNTIME,
-					},
-				},
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			})
-
 			require("conform").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
@@ -68,6 +43,36 @@ return {
 				cpp = { "clangtidy" },
 				c = { "clangtidy" },
 			}
+
+			vim.lsp.config("lsp_lua", {
+				runtime = {
+					version = "LuaJIT",
+					path = {
+						"lua/?.lua",
+						"lua/?/init.lua",
+					},
+				},
+				workspace = {
+					checkThirdParty = false,
+					library = {
+						vim.env.VIMRUNTIME,
+					},
+				},
+
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim", "require" },
+						},
+					},
+				},
+
+				telemetry = {
+					enable = false,
+				},
+			})
+
+			vim.lsp.enable("lua_ls")
 
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 				callback = function()
@@ -149,49 +154,6 @@ return {
 			})
 
 			-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			lspconfig.glsl_analyzer.setup({
-				filetypes = { "vert", "frag" },
-			})
-
-			lspconfig.verible.setup({
-				cmd = { "verible-verilog-ls", "--rules_config_search" },
-				root_dir = function()
-					local root_file = ".git"
-					return vim.fs.dirname(vim.fs.find(root_file, { upward = true })[1])
-				end,
-			})
-
-			lspconfig.hls.setup({
-				cmd = { "haskell-language-server-wrapper", "--lsp" },
-			})
-
-			--lspconfig.clangd.setup({
-			--	cmd = { "clangd" },
-			--	filetypes = { "c", "cpp" },
-			--})
-
-			lspconfig.gopls.setup({})
-
-			lspconfig.gopls.setup({})
-
-			lspconfig.vhdl_ls.setup({})
-
-			--local types = require('luasnip.util.types')
-
-			lspconfig.pylsp.setup({})
-
-			lspconfig.cmake.setup({})
-
-			lspconfig.html.setup({
-				filetypes = { "html", "php" },
-			})
-
-			lspconfig.cssls.setup({})
-
-			lspconfig.tailwindcss.setup({})
-
-			lspconfig.eslint.setup({})
 
 			--local types = require('luasnip.util.types')
 
