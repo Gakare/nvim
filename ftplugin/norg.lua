@@ -1,2 +1,2 @@
 vim.opt.wrap = true
-vim.conceallevel = 2
+vim.opt.conceallevel = 2
