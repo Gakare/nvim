@@ -22,10 +22,12 @@ vim.opt.splitbelow = true
 
 vim.opt.exrc = true
 
+vim.opt.termguicolors = true
+
 vim.bo.filetype = "true"
 vim.g.loaded_python_provider = 0
 
 if vim.loop.os_uname().sysname == "Windows" then
-	vim.opt.shell = "powershell.exe"
-	vim.opt.shellcmdflag = "-Command"
+    vim.opt.shell = "powershell.exe"
+    vim.opt.shellcmdflag = "-Command"
 end
