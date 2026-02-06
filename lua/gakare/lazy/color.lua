@@ -1,5 +1,5 @@
 local function colorscheme(color)
-	color = color or "midnight"
+	color = color or "default"
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -8,12 +8,12 @@ local function colorscheme(color)
 end
 return {
 	{
-		"dasupradyumna/midnight.nvim",
+		"EdenEast/nightfox.nvim",
 		lazy = false,
 		opts = {},
 		priority = 1000,
 		config = function()
-			colorscheme()
+			colorscheme("carbonfox")
 		end,
 	},
 	{
