@@ -18,15 +18,6 @@ return {
 		end,
 	},
 	{
-		"dasupradyumna/midnight.nvim",
-		lazy = false,
-		opts = {},
-		priority = 1000,
-		config = function()
-			colorscheme()
-		end,
-	},
-	{
 		"brenoprata10/nvim-highlight-colors",
 		lazy = false,
 		config = function()
