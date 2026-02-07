@@ -14,16 +14,13 @@
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "ae609525ddf01c153c39305730b1791800ffe4fe" },
   "mason.nvim": { "branch": "main", "commit": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65" },
+  "midnight.nvim": { "branch": "main", "commit": "fe062a6f2e5bd77cd8a260f61e6e12789eaf4f13" },
   "neorg": { "branch": "main", "commit": "408fc04013a95da8f217cb0958a06b6a77c01743" },
   "netrw.nvim": { "branch": "master", "commit": "90501c62b9b816ed3ed1e912ae9db9af5671a1b2" },
   "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-cmp": { "branch": "main", "commit": "da88697d7f45d16852c6b2769dc52387d1ddc45f" },
-<<<<<<< HEAD
-  "nvim-colorizer.lua": { "branch": "master", "commit": "a065833f35a3a7cc3ef137ac88b5381da2ba302e" },
-=======
   "nvim-highlight-colors": { "branch": "main", "commit": "e2cb22089cc2358b2b995c09578224f142de6039" },
->>>>>>> 189db6bc06c014a59d26dab4a7d2989ffe420751
   "nvim-lint": { "branch": "master", "commit": "bcd1a44edbea8cd473af7e7582d3f7ffc60d8e81" },
   "nvim-lspconfig": { "branch": "master", "commit": "0480b120318ec8bab27b530ffab6ee76a8c4d806" },
   "nvim-nio": { "branch": "master", "commit": "21f5324bfac14e22ba26553caf69ec76ae8a7662" },
