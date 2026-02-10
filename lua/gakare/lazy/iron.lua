@@ -27,10 +27,10 @@ return {
                             block_dividers = { "# %%" },
                         },
                         r = {
-                            command = { "R" },
+                            command = { "R", "--vanilla" },
                         },
                     },
-                    repl_filetype = function(bufnr, ft)
+                    repl_filetype = function(_, ft)
                         return ft
                     end,
                     -- Change this to make it auto split depending on size of window
